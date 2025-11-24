@@ -1,0 +1,10 @@
+package com.uretek_crm.uretek_crm.repository;
+
+import com.uretek_crm.uretek_crm.model.Contact;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.Optional;
+
+public interface ContactRepository extends JpaRepository<Contact, Long> {
+    Optional<Contact> findByName(String name);
+}
