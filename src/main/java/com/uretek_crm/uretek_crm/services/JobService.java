@@ -23,15 +23,15 @@ public class JobService {
     public Optional<Job> findById(Long id){ return jobRepository.findById(id); }
 
     //READ (by budget number )
-    public Optional<Job> findByBudget(Long number) { return jobRepository.findByBudget(number); }
+    public Optional<Job> findByBudget(String budget) { return jobRepository.findByBudget(budget); }
 
     //UPDATE (PUT/CATCH)
     public Job updateJob(Long id, Job updatedJob) {
         Job existingJob = jobRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Job with ID " + id + " not found."));
 
-        if (updatedJob.getPresupuesto() != null) {
-            existingJob.setPresupuesto(updatedJob.getPresupuesto());
+        if (updatedJob.getBudget() != null) {
+            existingJob.setBudget(updatedJob.getBudget());
         }
 
         if (updatedJob.getDescription() != null){
@@ -46,9 +46,7 @@ public class JobService {
             existingJob.setAddress(updatedJob.getAddress());
         }
 
-        if (updatedJob.getDate() != null) {
-            existingJob.setDate(updatedJob.getDate());
-        }
+
 
         return jobRepository.save(existingJob);
     }

@@ -18,7 +18,7 @@ public class Contact {
     private Long id;
 
     private String name;
-    private Long phoneNumber;
+    private String phoneNumber;
     private String email;
     private String address;
 }
