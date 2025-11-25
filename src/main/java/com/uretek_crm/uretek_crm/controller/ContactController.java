@@ -44,7 +44,7 @@ public class ContactController {
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
-    @PutMapping("/{contactId")
+    @PutMapping("/{contactId}")
     public Contact updateContact(@PathVariable Long contactId, @RequestBody Contact updatedContact) {
         return contactService.updateContact(contactId, updatedContact);
     }
