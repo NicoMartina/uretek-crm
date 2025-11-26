@@ -1,10 +1,12 @@
 package com.uretek_crm.uretek_crm.model;
 
+import com.uretek_crm.uretek_crm.model.enums.JobStatus;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Entity
@@ -12,22 +14,30 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Job {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String jobReference;
-    private String budget;
-    private String description;
+    // --- Consultation/Lead Fields ---
+    private LocalDateTime contactDate;
 
-    @Enumerated(EnumType.STRING) // Ensures the Enum is stored as a readable string
+    @Lob
+    private String problemDescription;
+    private String howHeard;
+    private String jobSiteAddress;
+
+    // --- Financial/Quote Data ---
+    private String jobReference;
+    private BigDecimal budget;
+
+    // --- Workflow Status ---
+    @Enumerated(EnumType.STRING)
     private JobStatus status;
-    
-    private String address;
+
+    // --- Excecution Data ---
+    private String description;
     private LocalDateTime startDate;
     private LocalDateTime endDate;
-
 
     @ManyToOne // Many Jobs belong to One Contact
     @JoinColumn(name = "contact_id") // This specifies the foreign key column name
