@@ -39,6 +39,10 @@ public class Job {
     private LocalDateTime startDate;
     private LocalDateTime endDate;
 
+    // --- Inventory/Product Tracking (New) ---
+    private BigDecimal productusedQuantity;
+    private String productUsedUnit; // e.g. "kg", "liters", "units"
+
     @ManyToOne // Many Jobs belong to One Contact
     @JoinColumn(name = "contact_id") // This specifies the foreign key column name
     private Contact contact;
