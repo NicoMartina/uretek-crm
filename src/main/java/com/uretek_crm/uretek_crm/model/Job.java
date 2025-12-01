@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.Set;
 
 @Entity
 @Data
@@ -42,6 +43,16 @@ public class Job {
     // --- Inventory/Product Tracking (New) ---
     private BigDecimal productusedQuantity;
     private String productUsedUnit; // e.g. "kg", "liters", "units"
+
+    // --- Reporting/Stats Categories (NNew) ---
+    // Links this job to multiple categories (e.g., "Repair" and "Residential")
+    @ManyToMany
+    @JoinTable(
+            name = "job_category_link", // The name of the intermediate join table
+            joinColumns = @JoinColumn(name = "job_id"),
+            inverseJoinColumns = @JoinColumn(name = "category_id")
+    )
+    private Set<JobCategory> categories;
 
     @ManyToOne // Many Jobs belong to One Contact
     @JoinColumn(name = "contact_id") // This specifies the foreign key column name
