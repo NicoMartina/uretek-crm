@@ -42,8 +42,8 @@ public class JobService {
             existingJob.setStatus(updatedJob.getStatus());
         }
 
-        if (updatedJob.getAddress() != null) {
-            existingJob.setAddress(updatedJob.getAddress());
+        if (updatedJob.getJobSiteAddress() != null) {
+            existingJob.setJobSiteAddress(updatedJob.getJobSiteAddress());
         }
 
 

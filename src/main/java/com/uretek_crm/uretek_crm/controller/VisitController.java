@@ -1,7 +1,6 @@
 package com.uretek_crm.uretek_crm.controller;
 
 import com.uretek_crm.uretek_crm.model.Visit;
-import com.uretek_crm.uretek_crm.repository.VisitRepository;
 import com.uretek_crm.uretek_crm.services.VisitService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

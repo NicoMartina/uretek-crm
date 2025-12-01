@@ -12,7 +12,7 @@ public enum JobStatus {
 
     // 3. BUDGET / QUOTE STAGE
     QUOTE_SENT("Budget Sent to Client"),
-    QUOTE_ACCEPTED("Budget Accepted - Awaiting Downpayment"),
+    QUOTE_ACCEPTED("Budget Accepted - Awaiting Down Payment"),
     QUOTE_REJECTED("Budget Rejected"),
 
     // 4. JOB EXECUTION STAGE

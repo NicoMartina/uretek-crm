@@ -1,0 +1,22 @@
+# src/main/resources/application.yml
+# --- 1. Default Profile (Runs when no other profile is specified) ---
+spring:
+  profiles:
+    active: dev
+
+  # Configuration for the 'dev' (local) profile
+  datasource:
+    url: jdbc:postgresql://localhost:5432/crm_database
+    username: postgres
+    password: your_password
+    driver-class-name: org.postgresql.Driver
+
+  # --- 2. Common Settings (JPA/Hibernate) ---
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    hibernate:
+      ddl-auto: update # Keep 'update' for dev/local testing
+      dialect: org.hibernate.dialect.PostgreSQLDialect
